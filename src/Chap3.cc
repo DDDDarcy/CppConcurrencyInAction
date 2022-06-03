@@ -38,7 +38,7 @@ bool list_contains(int value_to_find)
     test3
 */
 
-//保护共享数据
+//保护共享数据    切勿将 受保护的数据引用或指针传递到互斥锁作用外部
 
 
 

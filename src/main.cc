@@ -17,6 +17,7 @@
 #include "Chap2.hpp"
 #include "Chap3.hpp"
 #include "PandC.hpp"
+#include "Chap4.hpp"
 
 using namespace std;
 
@@ -88,6 +89,13 @@ int testPandC(){
     return 0;
 }
 
+int testChap4(){
+    using namespace C4;
+    Chap4 test;
+    test.test1();
+    return 0;
+}
+
 int main(){
     //SPointer<int , double , char, string> s;
    // using namespace Dheader;
@@ -101,8 +109,9 @@ int main(){
 
     //sleep(3);
     //testChap3();
-    testPandC();
-
+    //testPandC();
+    testChap4();
+   
 
 
     //cout << "Hello" << endl;
