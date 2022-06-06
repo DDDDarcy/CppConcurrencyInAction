@@ -16,6 +16,12 @@
 #include <thread>
 #include <unistd.h>
 #include <chrono>
+#include <exception>
+#include <memory>
+#include <stack>
+
+
+
 
 namespace C3{
 

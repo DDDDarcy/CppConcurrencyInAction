@@ -37,8 +37,67 @@ bool list_contains(int value_to_find)
 /*
     test3
 */
-
+//线程安全堆栈
 //保护共享数据    切勿将 受保护的数据引用或指针传递到互斥锁作用外部
+struct empyt_stack : std::exception
+{
+    const char* what() const throw(){
+        return "empty stack!";
+    };
+};
+
+template<class T>
+class threadsafe_stack
+{
+private:
+    std::stack<T> data;
+    mutable std::mutex m;
+public:
+    threadsafe_stack()
+        :data(stack<T>()){}
+    threadsafe_stack(const threadsafe_stack & other){
+        std::lock_guard<mutex> lock(m);
+        data = other.data;
+    }
+
+    threadsafe_stack& operator= (const threadsafe_stack&) = delete;
+
+    void push(T newValue){
+        std::lock_guard<mutex> lock(m);
+        data.push(newValue);
+    }
+
+    std::shared_ptr<T> pop(){
+        std::lock_guard<mutex> lock(m);
+        if(!data.empty()) throw empyt_stack(); // check stack empty before stack pop
+
+        std::shared_ptr<T> value = std::make_shared<T>(data.top());
+        data.pop();
+        return value;
+
+    }
+
+    void pop(T & value){
+        std::lock_guard<mutex> lock(m);
+        if(!data.empty()) throw empyt_stack();
+
+        value = data.top();
+        data.pop();
+    }
+
+    bool empty() const {
+        std::lock_guard<mutex> lock(m);
+        return data.empty();
+    }
+
+
+
+};
+
+void test3(){
+
+}
+
 
 
 
