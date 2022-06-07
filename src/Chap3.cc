@@ -69,7 +69,7 @@ public:
 
     std::shared_ptr<T> pop(){
         std::lock_guard<mutex> lock(m);
-        if(!data.empty()) throw empyt_stack(); // check stack empty before stack pop
+        if(data.empty()) throw empyt_stack(); // check stack empty before stack pop
 
         std::shared_ptr<T> value = std::make_shared<T>(data.top());
         data.pop();
@@ -79,7 +79,7 @@ public:
 
     void pop(T & value){
         std::lock_guard<mutex> lock(m);
-        if(!data.empty()) throw empyt_stack();
+        if(data.empty()) throw empyt_stack();
 
         value = data.top();
         data.pop();
@@ -94,7 +94,90 @@ public:
 
 };
 
-void test3(){
+#define LOOPN 10000
+//test thread safe stack
+void Chap3::test3(){
+
+    threadsafe_stack<int> stack;
+    std::vector<int> ves;
+
+    mutex m;
+    condition_variable con;
+
+    int checkArray[LOOPN] = {0};
+    vector<thread> pool;
+    bool is_true = true;
+    bool is_break = false;
+
+    thread prd1([&](){
+        for(int i = 0; i < LOOPN; ++ i)
+            if(i % 2) {
+                stack.push(i);
+                //this_thread::sleep_for(std::chrono::duration<int, ratio<1,1>>(2));
+                con.notify_all();
+            }
+    });
+    pool.push_back(move(prd1));
+
+    thread prd2([&](){
+        for(int i = 0; i < LOOPN; ++ i)
+            if( (i % 2) == 0 ) {
+                stack.push(i);
+                con.notify_all();
+            }
+    });
+    pool.push_back(move(prd2));
+
+    thread com1([&](){
+        while(1){
+            std::unique_lock<mutex> lock(m);
+            con.wait(lock,[&]{ return (!stack.empty() || is_break);});
+            //cout << "ttt" << endl;
+            //this_thread::sleep_for(std::chrono::duration<int, ratio<1,1>>(3));
+            if(is_break) break;
+            shared_ptr<int> value = stack.pop(); 
+            cout << *value << endl;
+            ves.push_back(*value);
+        }        
+    });
+    pool.push_back(move(com1));
+
+    thread com2([&](){
+        while(1){
+            std::unique_lock<mutex> lock(m);
+            con.wait(lock,[&]{ return (!stack.empty() || is_break);});
+            if(is_break) break;
+
+            shared_ptr<int> value = stack.pop();
+            cout << *value << endl;
+            ves.push_back(*value);
+        }        
+    });
+    pool.push_back(move(com2));
+
+    for(auto &x : pool){
+        x.detach();
+    }
+
+    cout << " t" << endl;
+    sleep(2);
+    
+    for(auto &x : ves){
+        checkArray[x] = 1;
+    }
+
+    for(int i = 0; i < LOOPN; ++ i){
+        if(checkArray[i] == 0) is_true = false;
+    }
+
+    if(is_true) {
+        cout << "test success" << endl;
+        is_break = true;
+        con.notify_all();
+
+    }
+    else cout << "test false" << endl;
+
 
 }
 

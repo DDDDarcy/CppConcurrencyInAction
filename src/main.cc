@@ -78,7 +78,7 @@ int testChap3(){
     using namespace C3;
 
     Chap3 test;
-    test.test2();
+    test.test3();
     return 0;
 }
 
@@ -108,9 +108,9 @@ int main(){
     //testChap2();
 
     //sleep(3);
-    //testChap3();
+    testChap3();
     //testPandC();
-    testChap4();
+    //testChap4();
    
 
 
