@@ -132,7 +132,7 @@ void Chap3::test3(){
         while(1){
             std::unique_lock<mutex> lock(m);
             con.wait(lock,[&]{ return (!stack.empty() || is_break);});
-            //cout << "ttt" << endl;
+            
             //this_thread::sleep_for(std::chrono::duration<int, ratio<1,1>>(3));
             if(is_break) break;
             shared_ptr<int> value = stack.pop(); 
@@ -162,10 +162,12 @@ void Chap3::test3(){
     cout << " t" << endl;
     sleep(2);
     
+
     for(auto &x : ves){
         checkArray[x] = 1;
     }
 
+    //check 
     for(int i = 0; i < LOOPN; ++ i){
         if(checkArray[i] == 0) is_true = false;
     }
@@ -173,6 +175,7 @@ void Chap3::test3(){
     if(is_true) {
         cout << "test success" << endl;
         is_break = true;
+        //shut down com1/com2 thread
         con.notify_all();
 
     }
