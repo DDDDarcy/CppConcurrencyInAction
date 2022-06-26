@@ -1,3 +1,0 @@
-/home/source/CppConcurrencyInAction/build/CMakeFiles/rebuild_cache.dir
-/home/source/CppConcurrencyInAction/build/CMakeFiles/edit_cache.dir
-/home/source/CppConcurrencyInAction/build/CMakeFiles/a.dir
