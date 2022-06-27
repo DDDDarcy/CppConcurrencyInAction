@@ -268,7 +268,7 @@ void Chap3::test4(){
     R1.join();
     R2.join();
     W.join();
-    cout << "test" << endl;
+    
 
 }
 
