@@ -187,6 +187,91 @@ void Chap3::test3(){
 
 
 }
+/*
+------test 4 
+    shared_lock shared_mutex;
+*/
+class dns_entry{
+public:
+    dns_entry():_data(4){};
+    ~dns_entry(){cout << "destory " << endl;}
+private:
+    int _data;
+};
+
+class dns_cache{
+    std::map<string, dns_entry> entries;
+    mutable std::shared_mutex entry_mutex; // shared_mutex  read write mutex
+public:
+    dns_entry find_entry(string const& domain){
+        std::shared_lock<shared_mutex> lk(entry_mutex);
+        auto const it = entries.find(domain);
+
+        return (it == entries.end()) ? dns_entry() : it->second;
+        
+    }
+    void insert_entry(string const& domain, dns_entry&& entry){
+        std::lock_guard<shared_mutex> lk(entry_mutex);
+        entries.emplace(domain, forward<dns_entry>(entry));
+    }
+};
+
+void test4dns(){
+    dns_cache cache;
+    cache.insert_entry("110", dns_entry());
+    cache.insert_entry("120", dns_entry());
+    cout << __FUNCTION__ << "   Hello " << endl;
+}
+
+static atomic<int> rwi = 0;
+shared_mutex test4RWmutex;
+
+void Writer(){
+    for(int i = 0; i < 10; ++i){
+        std::lock_guard<shared_mutex> lk(test4RWmutex);
+        cout << "stop " << i << endl;
+        chrono::milliseconds ms(1000);
+        this_thread::sleep_for(ms);
+    }
+
+}
+//无用示例  测试得 lock_guard 会阻塞  
+//shared_lock  的两个 Read线程 会出现 诸如此类的以下情况  显然是 两个 Read线程 没有相互阻塞出现的情况
+/*
+999067   |   140162347513408
+999068   |      |   140162347513408   这个地方
+999069   |   140162347513408
+........
+999258   |   140162347513408
+140162339120704                       这个地方
+999260   |   140162347513408
+*/
+void Reader(){
+    auto start = chrono::system_clock::now();
+
+    while(rwi < 1000000){
+        std::shared_lock<shared_mutex> lk(test4RWmutex);
+        cout << rwi << "   |   " << this_thread::get_id() << endl;
+        ++rwi;
+    }
+
+    auto end = chrono::system_clock::now() - start;
+    cout << this_thread::get_id() << "  end time :  " << end.count() / 1000000000.0 << " second " << endl;
+}
+
+void Chap3::test4(){
+    cout.sync_with_stdio(true);
+    cout << __FUNCTION__ << " start " << endl;
+    thread R1(Reader);
+    thread R2(Reader);
+    thread W(Writer);
+    R1.join();
+    R2.join();
+    W.join();
+    
+
+}
+
 
 
 

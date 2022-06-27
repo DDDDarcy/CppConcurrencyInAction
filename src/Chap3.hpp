@@ -10,7 +10,10 @@
 
 #include <list>
 #include <vector>
+#include <map>
+#include <unordered_map>
 #include <mutex>
+#include <shared_mutex>
 #include <algorithm>
 #include <iostream>
 #include <thread>
@@ -20,6 +23,7 @@
 #include <memory>
 #include <stack>
 #include <condition_variable>
+#include <atomic>
 
 
 
@@ -89,6 +93,11 @@ public:
         th2.join();
     }
     void test3();
+
+    //scoped_lock(lock1, lock2);  get two or more locks
+    
+    //shared_lock shared_mutex;
+    void test4();
 
 };
 }

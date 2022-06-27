@@ -78,7 +78,7 @@ int testChap3(){
     using namespace C3;
 
     Chap3 test;
-    test.test3();
+    test.test4();
     return 0;
 }
 
@@ -114,13 +114,10 @@ int main(){
 
         
     //sleep(3);
-    //testChap3();
+    testChap3();
     //testPandC();
     //testChap4();
 
-    int c = 0;
-    cin >> c;
-    cout << c << endl;
 
 
     //cout << "Hello" << endl;
