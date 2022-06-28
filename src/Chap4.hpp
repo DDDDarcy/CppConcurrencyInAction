@@ -14,6 +14,7 @@
 #include <condition_variable>
 #include <iostream>
 #include <memory>
+#include <future>
 
 
 namespace C4{
@@ -26,6 +27,9 @@ public:
     void test1();
     //thread safe queue
     void test2();
+
+    //future
+    void test3();
 
 private:
 

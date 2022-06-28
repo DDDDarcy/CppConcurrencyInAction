@@ -6,43 +6,25 @@
 
 #IncludeRegexTransform: 
 
-/home/source/CppConcurrencyInAction/src/Chap3.cc
-Chap3.hpp
-/home/source/CppConcurrencyInAction/src/Chap3.hpp
-string
--
+/home/source/CppConcurrencyInAction/src/Chap4.cc
+Chap4.hpp
+/home/source/CppConcurrencyInAction/src/Chap4.hpp
 
-/home/source/CppConcurrencyInAction/src/Chap3.hpp
-list
--
-vector
--
-map
--
-unordered_map
--
-mutex
--
-shared_mutex
--
-algorithm
--
-iostream
--
-thread
--
-unistd.h
+/home/source/CppConcurrencyInAction/src/Chap4.hpp
+queue
 -
 chrono
 -
-exception
+thread
 -
-memory
--
-stack
+mutex
 -
 condition_variable
 -
-atomic
+iostream
+-
+memory
+-
+future
 -
 

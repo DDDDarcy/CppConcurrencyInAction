@@ -92,12 +92,7 @@ int testPandC(){
 int testChap4(){
     using namespace C4;
     Chap4 test;
-    test.test1();
-    vector<vector<int>> vecs;
-    vecs.push_back(vector<int>());
-    vecs[0].push_back(3);
-    sleep(3);
-    cout << vecs[0][0] << endl;
+    test.test3();
     return 0;
 }
 
