@@ -163,7 +163,6 @@ void Chap4::test3(){
     future<int> answer = std::async(calculate_answer);
     thread t1(do_anything);
     //t1.detach();  函数 结尾加join 此处加join 后边打印无法得到执行
-    
     cout << "ccc" << endl;
     cout << "my answer is : " << answer.get() << endl;
     t1.join();
