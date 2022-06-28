@@ -13,7 +13,7 @@
 #include <mutex>
 #include <condition_variable>
 #include <iostream>
-
+#include <memory>
 
 
 namespace C4{
@@ -24,7 +24,8 @@ class Chap4{
 
 public:
     void test1();
-
+    //thread safe queue
+    void test2();
 
 private:
 

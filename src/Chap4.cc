@@ -52,6 +52,91 @@ void Chap4::test1(){
     th2.join();
 }
 
+/*
+*   test2
+*   thread safe queue    
+*   
+*/
+
+// code 4.4  
+template<class T>
+class threadsafe_queue_1{
+private:
+    std::mutex mut;
+    queue<T> data_queue;
+    condition_variable data_cond;
+public:
+    void push(T new_value){
+        lock_guard<mutex> lk(mut);
+        data_queue.push(new_value);
+        data_cond.notify_one();
+    }
+
+    void wait_and_pop(T & value){
+        unique_lock<mutex> lk(mut);
+        data_cond.wait(lk,[this]{ return !data_queue.empty(); });
+        value = data_queue.front();
+        data_queue.pop();
+    }
+
+};
+
+//  code 4.5
+template<class T>
+class threadsafe_queue_2{
+private:
+    mutable std::mutex mut;
+    std::queue<T> data_queue;
+    std::condition_variable data_cond;
+public:
+    threadsafe_queue_2(){}
+    threadsafe_queue_2(threadsafe_queue_2 const & other){
+        std::lock_guard<mutex> lk(mut);
+        data_queue = other.data_queue;
+    }
+    void push(T new_value){
+        std::lock_guard<mutex> lk(mut);
+        data_queue.push(new_value);
+        data_cond.notify_one();
+    }
+    void wait_and_pop(T & value){
+        std::unique_lock<mutex> lk(mut);
+        data_cond.wait(lk,[this]{ return !data_queue.empty(); });
+        value = data_queue.front();
+        data_queue.pop();
+    }
+
+    std::shared_ptr<T> wait_and_pop(){
+        std::unique_lock<mutex> lk(mut);
+        data_cond.wait(lk, [this]{ return !data_queue.empty(); });
+        std::shared_ptr<T> res = make_shared<T>(data_queue.front());
+        data_queue.pop();
+        return res;
+    }
+
+    bool try_pop(T& value){
+        lock_guard<mutex> lk(mut);
+        if(data_queue.empty())
+            return false;
+        value = data_queue.front();
+        data_queue.pop();
+        return true;
+    }
+
+    shared_ptr<T> try_pop(){
+        lock_guard<mutex> lk(mut);
+        if(data_queue.empty())
+            return shared_ptr<T>();
+        shared_ptr<T> res = make_shared<T>(data_queue.front());
+        data_queue.pop();
+        return res;
+    }
+
+    bool empty() const {
+        std::lock_guard<mutex> lk(mut);
+        return data_queue.empty();
+    }
+};
 
 
 }

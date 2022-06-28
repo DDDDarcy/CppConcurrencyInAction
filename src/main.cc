@@ -114,9 +114,9 @@ int main(){
 
         
     //sleep(3);
-    testChap3();
+    //testChap3();
     //testPandC();
-    //testChap4();
+    testChap4();
 
 
 
