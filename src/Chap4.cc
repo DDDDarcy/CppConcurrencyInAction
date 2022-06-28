@@ -138,5 +138,35 @@ public:
     }
 };
 
+void Chap4::test2(){
+
+}
+
+/*
+    test3
+    future
+*/
+int calculate_answer(){
+    chrono::milliseconds ms(5000);
+    this_thread::sleep_for(ms);
+    return 10;
+}
+
+void do_anything(){
+    chrono::milliseconds ms(500);
+    while(1){
+        this_thread::sleep_for(ms);
+        cout << "i m do anything" << endl;
+    }
+}
+void Chap4::test3(){ 
+    future<int> answer = std::async(calculate_answer);
+    thread t1(do_anything);
+    //t1.detach();  函数 结尾加join 此处加join 后边打印无法得到执行
+    cout << "ccc" << endl;
+    cout << "my answer is : " << answer.get() << endl;
+    t1.join();
+}
+
 
 }
