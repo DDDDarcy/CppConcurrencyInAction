@@ -167,6 +167,88 @@ void Chap4::test3(){
     cout << "my answer is : " << answer.get() << endl;
     t1.join();
 }
+/*
+    async launch method
+*/
+int asyn_test1(int a, int b){
+
+    return a + b;
+}
+
+int asyn_test2(const int & a){
+
+    return a;
+}
+
+void Chap4::test4(){
+    auto f1 = std::async(std::launch::async,asyn_test1,1,2);//在新的线程上执行
+    auto f2 = std::async(std::launch::deferred,asyn_test1,3,4);// 在 f2.wait()  or f2.get() 的时候执行
+
+    auto f3 = std::async(std::launch::async | std::launch::deferred, asyn_test2, 4); //实现 选择执行方式
+
+}
+/*
+    test4();
+
+    packaged_task<> 
+    这里用书中 译者 总结的话 记录
+    template<> 
+    class packaged_task<std::string(std::vector<char>*,int)> 
+    {
+    public: 
+        template<typename Callable> 
+        explicit packaged_task(Callable&& f); 
+        std::future<std::string> get_future(); 
+        void operator()(std::vector<char>*,int); 
+    };
+    
+    std::packaged_task 是个可调用对象，可以封装在 std::function 对象中，从而作为线程函数传递到 std::thread 对象中，或作为可调
+    用对象传递到另一个函数中或直接调用。当 std::packaged_task 作为函数调用时，实参将由函数调用操作符传递至底层函数，并且返回值
+    作为异步结果存储在 std::future 中，并且可通过get_future()获取。因此可以用 std::packaged_task 对任务进行打包，并适时的取回
+    future。当异步任务需要返回值时，可以等待future状态变为“就绪”。
+*/
+std::mutex mut5;
+std::deque<std::packaged_task<void()>> tasks;
+
+bool gui_shutdown_msg_recv(){
+    cout << "shutdown" << endl;
+    return true;
+}
+
+void get_and_process_gui_msg(){
+    cout << " get msg" << endl;
+}
+
+void gui_thread(){
+    while(!gui_shutdown_msg_recv()){
+        get_and_process_gui_msg();
+        std::packaged_task<void()> task;
+
+        {
+            std::lock_guard<mutex> lk(mut5);
+            if(tasks.empty())
+                continue;
+            task = std::move(tasks.front());
+            tasks.pop_front();
+        }
+
+        task();
+    }
+}
+
+template<typename Func>
+std::future<void> post_task_for_gui_thread(Func f){
+    std::packaged_task<void()> task(f);
+    std::future<void> res = task.get_future();
+    lock_guard<mutex> lk(mut5);
+    tasks.push_back(move(task));
+    return res;
+}
+
+void Chap4::test5(){
+
+    thread th1(gui_thread);
+}
 
 
 }

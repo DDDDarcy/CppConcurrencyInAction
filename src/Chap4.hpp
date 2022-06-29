@@ -8,6 +8,7 @@
 #ifndef __CHAP4_H__
 #define __CHAP4_H__
 #include <queue>
+#include <deque>
 #include <chrono>
 #include <thread>
 #include <mutex>
@@ -15,6 +16,7 @@
 #include <iostream>
 #include <memory>
 #include <future>
+#include <utility>
 
 
 namespace C4{
@@ -30,6 +32,12 @@ public:
 
     //future
     void test3();
+
+    //future async launch method
+    void test4();
+
+    //packaged_task 
+    void test5();
 
 private:
 
