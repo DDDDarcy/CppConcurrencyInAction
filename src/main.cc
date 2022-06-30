@@ -65,7 +65,7 @@ void test(int a){
     cout << a << endl;
 }
 
-
+// 第二章 代码测试
 int testChap2(){
     using namespace C2;
     Chap2 test;
@@ -74,6 +74,7 @@ int testChap2(){
     return 0;
 }
 
+//第三章代码测试
 int testChap3(){
     using namespace C3;
 
@@ -82,13 +83,14 @@ int testChap3(){
     return 0;
 }
 
+//忽略
 int testPandC(){
     PandC test;
     test.test();
 
     return 0;
 }
-
+//第四章代码测试
 int testChap4(){
     using namespace C4;
     Chap4 test;
