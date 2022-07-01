@@ -250,5 +250,13 @@ void Chap4::test5(){
     thread th1(gui_thread);
 }
 
+/*
+    test6 
+    promise
+*/
+void Chap4::test6(){
+
+}
+
 
 }

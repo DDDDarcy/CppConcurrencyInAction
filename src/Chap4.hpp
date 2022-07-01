@@ -39,6 +39,9 @@ public:
     //packaged_task 
     void test5();
 
+    //promise
+    void test6();
+
 private:
 
 
