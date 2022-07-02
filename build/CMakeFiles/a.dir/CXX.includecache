@@ -13,6 +13,8 @@ Chap4.hpp
 /home/source/CppConcurrencyInAction/src/Chap4.hpp
 queue
 -
+deque
+-
 chrono
 -
 thread
@@ -26,5 +28,7 @@ iostream
 memory
 -
 future
+-
+utility
 -
 
