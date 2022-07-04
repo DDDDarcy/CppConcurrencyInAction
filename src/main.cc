@@ -94,7 +94,7 @@ int testPandC(){
 int testChap4(){
     using namespace C4;
     Chap4 test;
-    test.test6();
+    test.test4();
     return 0;
 }
 

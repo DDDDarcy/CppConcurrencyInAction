@@ -170,8 +170,12 @@ void Chap4::test3(){
 /*
     async launch method
 */
-int asyn_test1(int a, int b){
 
+int asyn_test1(int a, int b){
+    chrono::milliseconds ms(4000);
+    cout << "start sleeping " << endl;
+    this_thread::sleep_for(ms);
+    cout << "end slept" << endl;
     return a + b;
 }
 
@@ -184,7 +188,36 @@ void Chap4::test4(){
     auto f1 = std::async(std::launch::async,asyn_test1,1,2);//在新的线程上执行
     auto f2 = std::async(std::launch::deferred,asyn_test1,3,4);// 在 f2.wait()  or f2.get() 的时候执行
 
-    auto f3 = std::async(std::launch::async | std::launch::deferred, asyn_test2, 4); //实现 选择执行方式
+    auto f3 = std::async(std::launch::async | std::launch::deferred, asyn_test2, 4); //实现 默认执行方式
+
+    chrono::milliseconds ms(200);
+    auto start = chrono::system_clock::now();
+    
+    auto f = [&]{
+        f1.wait();
+        f2.wait();
+        f3.wait();
+    };
+    //thread t1(move(f));
+
+    //int a = f1.get(); //  用这种方式 没有意义了 time cost 8 秒
+    //int b = f2.get(); 
+    int c = f3.get();
+
+    this_thread::sleep_for(ms);
+   // cout << "f1 value : " << a << endl; //
+    
+    this_thread::sleep_for(ms);
+    cout << "f2 value : " << f2.get() << endl;    
+    
+    cout << "f1 value :" << f1.get() << endl;
+    
+    cout << "f3 value : " << c <<endl;
+    auto end = chrono::system_clock::now() - start;
+    cout << "time cost : " << end.count() / 1000000000 << endl;
+    
+   // t1.join();
+
 
 }
 /*
