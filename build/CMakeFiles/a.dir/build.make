@@ -115,9 +115,22 @@ CMakeFiles/a.dir/src/Chap4.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/a.dir/src/Chap4.s"
 	/usr/bin/clang++-12 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/source/CppConcurrencyInAction/src/Chap4.cc -o CMakeFiles/a.dir/src/Chap4.s
 
+CMakeFiles/a.dir/src/Chap5.o: CMakeFiles/a.dir/flags.make
+CMakeFiles/a.dir/src/Chap5.o: ../src/Chap5.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/source/CppConcurrencyInAction/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/a.dir/src/Chap5.o"
+	/usr/bin/clang++-12 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/a.dir/src/Chap5.o -c /home/source/CppConcurrencyInAction/src/Chap5.cc
+
+CMakeFiles/a.dir/src/Chap5.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/a.dir/src/Chap5.i"
+	/usr/bin/clang++-12 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/source/CppConcurrencyInAction/src/Chap5.cc > CMakeFiles/a.dir/src/Chap5.i
+
+CMakeFiles/a.dir/src/Chap5.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/a.dir/src/Chap5.s"
+	/usr/bin/clang++-12 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/source/CppConcurrencyInAction/src/Chap5.cc -o CMakeFiles/a.dir/src/Chap5.s
+
 CMakeFiles/a.dir/src/Demo.o: CMakeFiles/a.dir/flags.make
 CMakeFiles/a.dir/src/Demo.o: ../src/Demo.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/source/CppConcurrencyInAction/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/a.dir/src/Demo.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/source/CppConcurrencyInAction/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/a.dir/src/Demo.o"
 	/usr/bin/clang++-12 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/a.dir/src/Demo.o -c /home/source/CppConcurrencyInAction/src/Demo.cc
 
 CMakeFiles/a.dir/src/Demo.i: cmake_force
@@ -130,7 +143,7 @@ CMakeFiles/a.dir/src/Demo.s: cmake_force
 
 CMakeFiles/a.dir/src/Dheader.o: CMakeFiles/a.dir/flags.make
 CMakeFiles/a.dir/src/Dheader.o: ../src/Dheader.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/source/CppConcurrencyInAction/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/a.dir/src/Dheader.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/source/CppConcurrencyInAction/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/a.dir/src/Dheader.o"
 	/usr/bin/clang++-12 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/a.dir/src/Dheader.o -c /home/source/CppConcurrencyInAction/src/Dheader.cc
 
 CMakeFiles/a.dir/src/Dheader.i: cmake_force
@@ -143,7 +156,7 @@ CMakeFiles/a.dir/src/Dheader.s: cmake_force
 
 CMakeFiles/a.dir/src/PandC.o: CMakeFiles/a.dir/flags.make
 CMakeFiles/a.dir/src/PandC.o: ../src/PandC.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/source/CppConcurrencyInAction/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/a.dir/src/PandC.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/source/CppConcurrencyInAction/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/a.dir/src/PandC.o"
 	/usr/bin/clang++-12 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/a.dir/src/PandC.o -c /home/source/CppConcurrencyInAction/src/PandC.cc
 
 CMakeFiles/a.dir/src/PandC.i: cmake_force
@@ -156,7 +169,7 @@ CMakeFiles/a.dir/src/PandC.s: cmake_force
 
 CMakeFiles/a.dir/src/main.o: CMakeFiles/a.dir/flags.make
 CMakeFiles/a.dir/src/main.o: ../src/main.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/source/CppConcurrencyInAction/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/a.dir/src/main.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/source/CppConcurrencyInAction/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/a.dir/src/main.o"
 	/usr/bin/clang++-12 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/a.dir/src/main.o -c /home/source/CppConcurrencyInAction/src/main.cc
 
 CMakeFiles/a.dir/src/main.i: cmake_force
@@ -172,6 +185,7 @@ a_OBJECTS = \
 "CMakeFiles/a.dir/src/Chap2.o" \
 "CMakeFiles/a.dir/src/Chap3.o" \
 "CMakeFiles/a.dir/src/Chap4.o" \
+"CMakeFiles/a.dir/src/Chap5.o" \
 "CMakeFiles/a.dir/src/Demo.o" \
 "CMakeFiles/a.dir/src/Dheader.o" \
 "CMakeFiles/a.dir/src/PandC.o" \
@@ -183,13 +197,14 @@ a_EXTERNAL_OBJECTS =
 a : CMakeFiles/a.dir/src/Chap2.o
 a : CMakeFiles/a.dir/src/Chap3.o
 a : CMakeFiles/a.dir/src/Chap4.o
+a : CMakeFiles/a.dir/src/Chap5.o
 a : CMakeFiles/a.dir/src/Demo.o
 a : CMakeFiles/a.dir/src/Dheader.o
 a : CMakeFiles/a.dir/src/PandC.o
 a : CMakeFiles/a.dir/src/main.o
 a : CMakeFiles/a.dir/build.make
 a : CMakeFiles/a.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/source/CppConcurrencyInAction/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/source/CppConcurrencyInAction/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable a"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/a.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

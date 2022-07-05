@@ -16,6 +16,11 @@
 },
 {
   "directory": "/home/source/CppConcurrencyInAction/build",
+  "command": "/usr/bin/clang++-12    -std=c++17  -g -o CMakeFiles/a.dir/src/Chap5.o -c /home/source/CppConcurrencyInAction/src/Chap5.cc",
+  "file": "/home/source/CppConcurrencyInAction/src/Chap5.cc"
+},
+{
+  "directory": "/home/source/CppConcurrencyInAction/build",
   "command": "/usr/bin/clang++-12    -std=c++17  -g -o CMakeFiles/a.dir/src/Demo.o -c /home/source/CppConcurrencyInAction/src/Demo.cc",
   "file": "/home/source/CppConcurrencyInAction/src/Demo.cc"
 },

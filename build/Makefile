@@ -188,6 +188,21 @@ src/Chap4.s:
 .PHONY : src/Chap4.s
 
 # target to build an object file
+src/Chap5.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/Chap5.o
+.PHONY : src/Chap5.o
+
+# target to preprocess a source file
+src/Chap5.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/Chap5.i
+.PHONY : src/Chap5.i
+
+# target to generate assembly for a file
+src/Chap5.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/Chap5.s
+.PHONY : src/Chap5.s
+
+# target to build an object file
 src/Demo.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/Demo.o
 .PHONY : src/Demo.o
@@ -265,6 +280,9 @@ help:
 	@echo "... src/Chap4.o"
 	@echo "... src/Chap4.i"
 	@echo "... src/Chap4.s"
+	@echo "... src/Chap5.o"
+	@echo "... src/Chap5.i"
+	@echo "... src/Chap5.s"
 	@echo "... src/Demo.o"
 	@echo "... src/Demo.i"
 	@echo "... src/Demo.s"

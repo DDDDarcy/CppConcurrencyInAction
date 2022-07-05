@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/source/CppConcurrencyInAction/src/Chap5.cc
+Chap5.hpp
+/home/source/CppConcurrencyInAction/src/Chap5.hpp
+
+/home/source/CppConcurrencyInAction/src/Chap5.hpp
+iostream
+-
+atomic
+-
+
