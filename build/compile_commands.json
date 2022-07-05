@@ -1,0 +1,37 @@
+[
+{
+  "directory": "/home/source/CppConcurrencyInAction/build",
+  "command": "/usr/bin/clang++-12    -std=c++17  -g -o CMakeFiles/a.dir/src/Chap2.o -c /home/source/CppConcurrencyInAction/src/Chap2.cc",
+  "file": "/home/source/CppConcurrencyInAction/src/Chap2.cc"
+},
+{
+  "directory": "/home/source/CppConcurrencyInAction/build",
+  "command": "/usr/bin/clang++-12    -std=c++17  -g -o CMakeFiles/a.dir/src/Chap3.o -c /home/source/CppConcurrencyInAction/src/Chap3.cc",
+  "file": "/home/source/CppConcurrencyInAction/src/Chap3.cc"
+},
+{
+  "directory": "/home/source/CppConcurrencyInAction/build",
+  "command": "/usr/bin/clang++-12    -std=c++17  -g -o CMakeFiles/a.dir/src/Chap4.o -c /home/source/CppConcurrencyInAction/src/Chap4.cc",
+  "file": "/home/source/CppConcurrencyInAction/src/Chap4.cc"
+},
+{
+  "directory": "/home/source/CppConcurrencyInAction/build",
+  "command": "/usr/bin/clang++-12    -std=c++17  -g -o CMakeFiles/a.dir/src/Demo.o -c /home/source/CppConcurrencyInAction/src/Demo.cc",
+  "file": "/home/source/CppConcurrencyInAction/src/Demo.cc"
+},
+{
+  "directory": "/home/source/CppConcurrencyInAction/build",
+  "command": "/usr/bin/clang++-12    -std=c++17  -g -o CMakeFiles/a.dir/src/Dheader.o -c /home/source/CppConcurrencyInAction/src/Dheader.cc",
+  "file": "/home/source/CppConcurrencyInAction/src/Dheader.cc"
+},
+{
+  "directory": "/home/source/CppConcurrencyInAction/build",
+  "command": "/usr/bin/clang++-12    -std=c++17  -g -o CMakeFiles/a.dir/src/PandC.o -c /home/source/CppConcurrencyInAction/src/PandC.cc",
+  "file": "/home/source/CppConcurrencyInAction/src/PandC.cc"
+},
+{
+  "directory": "/home/source/CppConcurrencyInAction/build",
+  "command": "/usr/bin/clang++-12    -std=c++17  -g -o CMakeFiles/a.dir/src/main.o -c /home/source/CppConcurrencyInAction/src/main.cc",
+  "file": "/home/source/CppConcurrencyInAction/src/main.cc"
+}
+]
