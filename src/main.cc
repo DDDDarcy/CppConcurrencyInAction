@@ -18,6 +18,7 @@
 #include "Chap3.hpp"
 #include "PandC.hpp"
 #include "Chap4.hpp"
+#include "Chap5.hpp"
 
 using namespace std;
 
@@ -97,6 +98,13 @@ int testChap4(){
     test.test4();
     return 0;
 }
+//第五章代码测试
+int testChap5(){
+    using namespace C5;
+    Chap5 test;
+    test.test1();
+    return 0;
+}
 
 int main(){
     //SPointer<int , double , char, string> s;
@@ -113,8 +121,8 @@ int main(){
     //sleep(3);
     //testChap3();
     //testPandC();
-    testChap4();
-
+    //testChap4();
+    testChap5();
 
 
     //cout << "Hello" << endl;
